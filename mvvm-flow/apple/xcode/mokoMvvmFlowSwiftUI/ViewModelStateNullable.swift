@@ -95,14 +95,6 @@ extension ObservableObject where Self: ViewModel {
             mapper: { $0 as? Array<T> }
         )
     }
-    
-    func stateNullable(_ flowKey: KeyPath<Self, CStateFlow<StringDesc>>) -> String? {
-        return stateNullable(
-            flowKey,
-            equals: { $0 === $1 },
-            mapper: { $0?.localized() }
-        )
-    }
 
     func stateNullable<T: KotlinBase>(_ flowKey: KeyPath<Self, CStateFlow<T>>) -> T? {
         return stateNullable(
